@@ -1,18 +1,23 @@
-
 def aStarbPlus(word):
-    index = 0
-    while index < len(word):
-        if word[index] == 'a':
-            index += 1
-        elif word[index] == 'b':
-            while index < len(word):
-                if word[index] != 'b':
-                    return False
-                index += 1
-            return True
+    flag = 0
+    for w in word:
+        if w == "a":
+            if flag == 0:
+                continue
+            else:
+                return False
+        elif w == "b":
+            if flag == 0:
+                flag = 1
+            else:
+                continue
         else:
             return False
-    return False
+
+    if flag == 0:
+        return False
+    else:
+        return True
 
 
 def aStar(word):
